@@ -1,23 +1,23 @@
-import requests
-import json
+import smk_gallery
+import meetmuseum_gallery
+
 import random
 
-def getAllImageIds():
-    result = requests.get('https://api.smk.dk/api/v1/art/all_ids').content
-    return json.loads(result)['objectIDs']
+galleries = []
+#galleries.append(smk_gallery)
+galleries.append(meetmuseum_gallery)
+gallery = galleries[random.randint(0,len(galleries)-1)]
 
+print(gallery)
 
-def selectRandomImage(imageList):
-    imageID = imageList[random.randint(0, len(imageList))]
-    result = requests.get('https://api.smk.dk/api/v1/art/?object_number={objectNumber}&lang=en'.format(objectNumber=imageID)).content
-    return json.loads(result)
+imagelist = gallery.getAllImageIds()
+imageInfo = gallery.selectRandomImage(imagelist)
+print(gallery.downloadImage(imageInfo))
 
+#imagelist = smk_gallery.getAllImageIds()
+#imageInfo = smk_gallery.selectRandomImage(imagelist)
+#print(smk_gallery.downloadImage(imageInfo))
 
-def downloadImage(imageInfo):
-    url = imageInfo['items'][0]['image_native']
-    print(url)
-
-
-imagelist = getAllImageIds()
-imageInfo = selectRandomImage(imagelist)
-downloadImage(imageInfo)
+#imagelist = meetmuseum_gallery.getAllImageIds()
+#imageInfo = meetmuseum_gallery.selectRandomImage(imagelist)
+#print(meetmuseum_gallery.downloadImage(imageInfo))
