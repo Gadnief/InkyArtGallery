@@ -5,7 +5,7 @@ from PIL import Image, ImageOps, ImageEnhance, ImageDraw, ImageFont
 import urllib.request
 import random
 
-from font_source_serif_pro import SourceSansProSemibold
+from font_source_sans_pro import SourceSansProSemibold
 
 print('starting')
 galleries = []
