@@ -1,5 +1,6 @@
 import smk_gallery
 import meetmuseum_gallery
+from inky.auto import auto
 
 import random
 
@@ -10,4 +11,7 @@ gallery = galleries[random.randint(0,len(galleries)-1)]
 
 imagelist = gallery.getAllImageIds()
 imageInfo = gallery.selectRandomImage(imagelist)
-print(gallery.downloadImage(imageInfo))
+
+board = auto()
+
+board.set_image(gallery.downloadImage(imageInfo))
