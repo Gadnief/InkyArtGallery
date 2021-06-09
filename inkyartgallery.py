@@ -21,7 +21,7 @@ urllib.request.urlretrieve(imageurl, "gfg.png")
 board = Inky()
 print('board setup')
 rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448))
-image = ImageOps.mirror(rawimage)
+image = ImageOps.flip(rawimage)
 
 print('Image loaded')
 print('URL: ' + imageurl)
