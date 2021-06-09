@@ -27,9 +27,9 @@ print('board setup')
 rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448))
 image = ImageOps.flip(rawimage)
 filter = ImageEnhance.Color(image)
-filteredImage = filter.enhance(2)
+filteredImage = filter.enhance(1.5)
 contrast = ImageEnhance.Contrast(filteredImage)
-contrastedImage = contrast.enhance(2)
+contrastedImage = contrast.enhance(1.5)
 
 # Draw url
 draw = ImageDraw.Draw(contrastedImage)
