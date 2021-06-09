@@ -20,6 +20,6 @@ def selectRandomImage(imageList):
 
 def downloadImage(imageInfo):
     imagemeta = {}
-    imagemeta.url = imageInfo['primaryImage']
-    imagemeta.title = imageInfo['title']
+    imagemeta['url'] = imageInfo['primaryImage']
+    imagemeta['title'] = imageInfo['title']
     return imagemeta
