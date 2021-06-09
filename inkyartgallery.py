@@ -1,10 +1,11 @@
 import smk_gallery
 import meetmuseum_gallery
 from inky.inky_uc8159 import Inky
-from PIL import Image, ImageOps, ImageEnhance
+from PIL import Image, ImageOps, ImageEnhance, ImageDraw
 import urllib.request
-
 import random
+
+from font_source_serif_pro import SourceSerifProSemibold
 
 print('starting')
 galleries = []
@@ -27,6 +28,10 @@ filter = ImageEnhance.Color(image)
 filteredImage = filter.enhance(2)
 contrast = ImageEnhance.Contrast(filteredImage)
 contrastedImage = contrast.enhance(2)
+
+# Draw url
+draw = ImageDraw.Draw(contrastedImage)
+draw.multiline_text((1, 1), reflowed, fill=board.BLACK, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
 
 print('Image loaded')
 print('URL: ' + imageurl)
