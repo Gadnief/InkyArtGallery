@@ -21,14 +21,14 @@ urllib.request.urlretrieve(imageurl, "gfg.png")
 board = Inky()
 print('board setup')
 
-filter = ImageEnhance.Color(img)
-
-rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448)).filter(3)
+rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448))
 image = ImageOps.flip(rawimage)
+filter = ImageEnhance.Color(image)
+filteredImage = filter.enhance(2)
 
 print('Image loaded')
 print('URL: ' + imageurl)
-board.set_image(image)
+board.set_image(filteredImage)
 print('Try to show')
 board.show()
 print('done!')
