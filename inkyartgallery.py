@@ -1,7 +1,7 @@
 import smk_gallery
 import meetmuseum_gallery
 from inky.inky_uc8159 import Inky
-from PIL import Image, ImageOps, ImageEnhance, ImageDraw
+from PIL import Image, ImageOps, ImageEnhance, ImageDraw, ImageFont
 import urllib.request
 import random
 
