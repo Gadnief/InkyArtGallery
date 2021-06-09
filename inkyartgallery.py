@@ -16,8 +16,10 @@ gallery = galleries[random.randint(0,len(galleries)-1)]
 imagelist = gallery.getAllImageIds()
 imageInfo = gallery.selectRandomImage(imagelist)
 
-imageurl = gallery.downloadImage(imageInfo)
-urllib.request.urlretrieve(imageurl, "gfg.png")
+downlaodedimage = gallery.downloadImage(imageInfo)
+url = downlaodedimage.url
+title = downlaodedimage.title
+urllib.request.urlretrieve(url, "gfg.png")
 
 board = Inky()
 print('board setup')
