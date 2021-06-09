@@ -9,7 +9,7 @@ import random
 print('starting')
 galleries = []
 galleries.append(smk_gallery)
-#galleries.append(meetmuseum_gallery)
+galleries.append(meetmuseum_gallery)
 gallery = galleries[random.randint(0,len(galleries)-1)]
 
 imagelist = gallery.getAllImageIds()
