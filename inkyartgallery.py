@@ -17,8 +17,8 @@ imagelist = gallery.getAllImageIds()
 imageInfo = gallery.selectRandomImage(imagelist)
 
 downlaodedimage = gallery.downloadImage(imageInfo)
-url = downlaodedimage.url
-title = downlaodedimage.title
+url = downlaodedimage['url']
+title = downlaodedimage['title']
 urllib.request.urlretrieve(url, "gfg.png")
 
 board = Inky()
