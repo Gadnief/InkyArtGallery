@@ -19,7 +19,7 @@ urllib.request.urlretrieve(gallery.downloadImage(imageInfo), "gfg.png")
 
 board = Inky()
 print('board setup')
-image = Image.open("gfg.png").resize(600,448)
+image = Image.open("gfg.png").resize((600,448))
 board.set_image(image)
 board.show()
 print('done!')
