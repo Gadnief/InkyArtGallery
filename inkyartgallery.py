@@ -1,7 +1,7 @@
 import smk_gallery
 import meetmuseum_gallery
 from inky.inky_uc8159 import Inky
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageEnhance
 import urllib.request
 
 import random
@@ -20,7 +20,10 @@ urllib.request.urlretrieve(imageurl, "gfg.png")
 
 board = Inky()
 print('board setup')
-rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448))
+
+filter = ImageEnhance.Color(img)
+
+rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448)).filter(3)
 image = ImageOps.flip(rawimage)
 
 print('Image loaded')
