@@ -20,7 +20,7 @@ urllib.request.urlretrieve(imageurl, "gfg.png")
 
 board = Inky()
 print('board setup')
-image = Image.open("gfg.png").resize((600,448)).transpose(Image.TRANSPOSE)
+image = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448))
 print('Image loaded')
 print('URL: ' + imageurl)
 board.set_image(image)
