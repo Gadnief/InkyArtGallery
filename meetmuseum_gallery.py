@@ -5,7 +5,7 @@ import json
 import random
 
 def getAllImageIds():
-    result = requests.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=paper').content
+    result = requests.get('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=Paintings').content
     return json.loads(result)['objectIDs']
 
 
