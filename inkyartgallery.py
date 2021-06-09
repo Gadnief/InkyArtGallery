@@ -2,6 +2,7 @@ import smk_gallery
 import meetmuseum_gallery
 from inky.inky_uc8159 import Inky
 from PIL import Image
+import urllib.request
 
 import random
 
@@ -14,9 +15,11 @@ gallery = galleries[random.randint(0,len(galleries)-1)]
 imagelist = gallery.getAllImageIds()
 imageInfo = gallery.selectRandomImage(imagelist)
 
+urllib.request.urlretrieve(gallery.downloadImage(imageInfo), "gfg.png")
+
 board = Inky()
 print('board setup')
-image = Image.open(gallery.downloadImage(imageInfo))
-board.set_image(image)
+image = Image.open()
+board.set_image("gfg.png")
 board.show()
 print('done!')
