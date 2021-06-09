@@ -31,7 +31,7 @@ contrastedImage = contrast.enhance(2)
 
 # Draw url
 draw = ImageDraw.Draw(contrastedImage)
-draw.multiline_text((1, 1), reflowed, fill=board.BLACK, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
+draw.multiline_text((1, 1), "Demotext", fill=board.BLACK, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
 
 print('Image loaded')
 print('URL: ' + imageurl)
