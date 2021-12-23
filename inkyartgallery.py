@@ -31,14 +31,14 @@ def downloadValidImage():
         else:
             break
 
-    return rawimage
+    return (rawimage, title)
 
 print('starting')
 
 board = Inky()
 print('board setup')
 
-rawimage = downloadValidImage()
+rawimage = downloadValidImage()[0]
 
 print('Transposing image')
 transposedImage = rawimage.transpose(Image.TRANSPOSE).resize((600,448))
@@ -48,13 +48,9 @@ filteredImage = filter.enhance(1.5)
 contrast = ImageEnhance.Contrast(filteredImage)
 contrastedImage = contrast.enhance(1.5)
 
-print(rawimage.width)
-print(rawimage.height)
-print(rawimage.width / rawimage.height)
-
 # Draw url
 draw = ImageDraw.Draw(contrastedImage)
-draw.multiline_text((1, 1), title, fill=board.WHITE, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
+draw.multiline_text((1, 1), rawimage[1], fill=board.WHITE, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
 
 print('Image loaded')
 print('URL: ' + url)
