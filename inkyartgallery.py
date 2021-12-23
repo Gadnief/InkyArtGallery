@@ -7,24 +7,40 @@ import random
 
 from font_source_sans_pro import SourceSansProSemibold
 
+def downloadValidImage():
+    print('Downloading image')
+    galleries = []
+    galleries.append(smk_gallery)
+    galleries.append(meetmuseum_gallery)
+    gallery = galleries[random.randint(0, len(galleries) - 1)]
+
+    while True:
+        imagelist = gallery.getAllImageIds()
+        imageInfo = gallery.selectRandomImage(imagelist)
+
+        downlaodedimage = gallery.downloadImage(imageInfo)
+        url = downlaodedimage['url']
+        title = downlaodedimage['title']
+        urllib.request.urlretrieve(url, "gfg.png")
+
+        rawimage = Image.open("gfg.png")
+        ratio = (rawimage.width / rawimage.height)
+
+        if (ratio > 1.4):
+            return True
+        else:
+            break
+
+    return rawimage
+
 print('starting')
-galleries = []
-#galleries.append(smk_gallery)
-galleries.append(meetmuseum_gallery)
-gallery = galleries[random.randint(0,len(galleries)-1)]
-
-imagelist = gallery.getAllImageIds()
-imageInfo = gallery.selectRandomImage(imagelist)
-
-downlaodedimage = gallery.downloadImage(imageInfo)
-url = downlaodedimage['url']
-title = downlaodedimage['title']
-urllib.request.urlretrieve(url, "gfg.png")
 
 board = Inky()
 print('board setup')
 
-rawimage = Image.open("gfg.png")
+rawimage = downloadValidImage()
+
+print('Transposing image')
 transposedImage = rawimage.transpose(Image.TRANSPOSE).resize((600,448))
 image = ImageOps.flip(transposedImage)
 filter = ImageEnhance.Color(image)
@@ -46,3 +62,4 @@ board.set_image(contrastedImage)
 print('Try to show')
 board.show()
 print('done!')
+
