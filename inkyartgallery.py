@@ -31,6 +31,10 @@ filteredImage = filter.enhance(1.5)
 contrast = ImageEnhance.Contrast(filteredImage)
 contrastedImage = contrast.enhance(1.5)
 
+print(contrastedImage.width)
+print(contrastedImage.height)
+print(contrastedImage.width / contrastedImage.height)
+
 # Draw url
 draw = ImageDraw.Draw(contrastedImage)
 draw.multiline_text((1, 1), title, fill=board.WHITE, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
