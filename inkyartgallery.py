@@ -24,8 +24,8 @@ urllib.request.urlretrieve(url, "gfg.png")
 board = Inky()
 print('board setup')
 
-rawimage = Image.open("gfg.png")\
-transposedImage= rawimage.transpose(Image.TRANSPOSE).resize((600,448))
+rawimage = Image.open("gfg.png")
+transposedImage = rawimage.transpose(Image.TRANSPOSE).resize((600,448))
 image = ImageOps.flip(transposedImage)
 filter = ImageEnhance.Color(image)
 filteredImage = filter.enhance(1.5)
