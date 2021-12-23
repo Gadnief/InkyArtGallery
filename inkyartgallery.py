@@ -24,16 +24,17 @@ urllib.request.urlretrieve(url, "gfg.png")
 board = Inky()
 print('board setup')
 
-rawimage = Image.open("gfg.png").transpose(Image.TRANSPOSE).resize((600,448))
-image = ImageOps.flip(rawimage)
+rawimage = Image.open("gfg.png")\
+transposedImage= rawimage.transpose(Image.TRANSPOSE).resize((600,448))
+image = ImageOps.flip(transposedImage)
 filter = ImageEnhance.Color(image)
 filteredImage = filter.enhance(1.5)
 contrast = ImageEnhance.Contrast(filteredImage)
 contrastedImage = contrast.enhance(1.5)
 
-print(contrastedImage.width)
-print(contrastedImage.height)
-print(contrastedImage.width / contrastedImage.height)
+print(rawimage.width)
+print(rawimage.height)
+print(rawimage.width / rawimage.height)
 
 # Draw url
 draw = ImageDraw.Draw(contrastedImage)
