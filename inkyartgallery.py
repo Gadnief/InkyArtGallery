@@ -1,5 +1,6 @@
 import smk_gallery
 import meetmuseum_gallery
+import marvel_gallery
 from inky.inky_uc8159 import Inky
 from PIL import Image, ImageOps, ImageEnhance, ImageDraw, ImageFont
 import urllib.request
@@ -14,7 +15,8 @@ def downloadValidImage():
             print('Downloading image')
             galleries = []
             # galleries.append(smk_gallery)
-            galleries.append(meetmuseum_gallery)
+            # galleries.append(meetmuseum_gallery)
+            galleries.append(marvel_gallery)
             gallery = galleries[random.randint(0, len(galleries) - 1)]
 
             imagelist = gallery.getAllImageIds()
