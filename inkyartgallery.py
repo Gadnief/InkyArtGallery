@@ -49,7 +49,6 @@ draw = ImageDraw.Draw(contrastedImage)
 #draw.multiline_text((1, 1), rawimage[1], fill=board.WHITE, font=ImageFont.truetype(SourceSansProSemibold, 24), align="left")
 
 print('Image loaded')
-print('URL: ' + url)
 board.set_image(contrastedImage)
 print('Try to show')
 board.show()
