@@ -35,7 +35,7 @@ def downloadValidImage():
             print ('Error getting image! Retry!')
 
 
-        if ratio < 0.75 and ratio > 0.6:
+        if ratio < 2 and ratio > 0.1:
             print ('Found Image!')
             return (rawimage, title)
         else:
