@@ -20,7 +20,9 @@ def downloadValidImage():
 
         downlaodedimage = gallery.downloadImage(imageInfo)
         url = downlaodedimage['url']
+        print('URL: ' + url)
         title = downlaodedimage['title']
+        print('Title: ' + title)
         urllib.request.urlretrieve(url, "gfg.png")
 
         rawimage = Image.open("gfg.png")
@@ -29,7 +31,8 @@ def downloadValidImage():
         if (ratio > 1.4):
             return True
         else:
-            break
+            return True
+            # break
 
     return (rawimage, title)
 
