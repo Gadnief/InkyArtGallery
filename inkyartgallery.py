@@ -10,7 +10,7 @@ from font_source_sans_pro import SourceSansProSemibold
 def downloadValidImage():
     print('Downloading image')
     galleries = []
-    galleries.append(smk_gallery)
+    #galleries.append(smk_gallery)
     galleries.append(meetmuseum_gallery)
     gallery = galleries[random.randint(0, len(galleries) - 1)]
 
