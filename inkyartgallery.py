@@ -14,25 +14,18 @@ def downloadValidImage():
     galleries.append(meetmuseum_gallery)
     gallery = galleries[random.randint(0, len(galleries) - 1)]
 
-    while True:
-        imagelist = gallery.getAllImageIds()
-        imageInfo = gallery.selectRandomImage(imagelist)
+    imagelist = gallery.getAllImageIds()
+    imageInfo = gallery.selectRandomImage(imagelist)
 
-        downlaodedimage = gallery.downloadImage(imageInfo)
-        url = downlaodedimage['url']
-        print('URL: ' + url)
-        title = downlaodedimage['title']
-        print('Title: ' + title)
-        urllib.request.urlretrieve(url, "gfg.png")
+    downlaodedimage = gallery.downloadImage(imageInfo)
+    url = downlaodedimage['url']
+    print('URL: ' + url)
+    title = downlaodedimage['title']
+    print('Title: ' + title)
+    urllib.request.urlretrieve(url, "gfg.png")
 
-        rawimage = Image.open("gfg.png")
-        ratio = (rawimage.width / rawimage.height)
-
-        if (ratio > 1.4):
-            return True
-        else:
-            return True
-            # break
+    rawimage = Image.open("gfg.png")
+    ratio = (rawimage.width / rawimage.height)
 
     return (rawimage, title)
 
