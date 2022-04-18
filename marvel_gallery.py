@@ -27,9 +27,12 @@ def selectRandomImage(id):
         selectRandomImage(0)
     else:
         imageInfo = {}
-        imageInfo['primaryImage'] = str(json.loads(result.content)['data']['results'][0]['images'][0]['path'] + '.jpg')
-        imageInfo['title'] = json.loads(result.content)['data']['results'][0]['title']
-        return imageInfo
+        if len(json.loads(result.content)['data']['results'][0]['images']) > 0:
+            imageInfo['primaryImage'] = str(json.loads(result.content)['data']['results'][0]['images'][0]['path'] + '.jpg')
+            imageInfo['title'] = json.loads(result.content)['data']['results'][0]['title']
+            return imageInfo
+        else:
+            selectRandomImage(0)
 
 def downloadImage(imageInfo):
     imagemeta = {}

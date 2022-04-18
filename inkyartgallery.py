@@ -7,7 +7,7 @@ import urllib.request
 import random
 
 title = ""
-
+rawimage = None
 def downloadValidImage():
     while True:
         ratio = 1
